@@ -1,6 +1,6 @@
 #include <fstream>
 #include <filesystem>
-#include "../src/optimizer/schedule_optimizer.h"
+#include "../src/optimizer/allocation_optimizer.h"
 #include "./instances/test_instances.h"
 
 
@@ -29,7 +29,7 @@ int main() {
 
 	for (size_t i = 0; i< instances.size(); ++i) {
 		file << "\n########### Test " << i+1 << " ############" << std::endl;
-		ScheduleOptimizer optimizer{*instances[i]};
+		AllocationOptimizer optimizer{*instances[i]};
 
 		if (optimizer.solve()) {
 			optimizer.print_results(file);

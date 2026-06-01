@@ -5,7 +5,7 @@
 #include "ortools/sat/cp_model.h"
 #include "../model/problem_data.h"
 
-class ScheduleOptimizer {
+class AllocationOptimizer {
 	private:
 		const ProblemData& data_;
 		operations_research::sat::CpSolverStatus result_status_;
@@ -109,7 +109,7 @@ class ScheduleOptimizer {
 		}
 
 	public:
-		ScheduleOptimizer(const ProblemData& data)
+		AllocationOptimizer(const ProblemData& data)
 			: data_{data},
 			result_status_{operations_research::sat::CpSolverStatus::UNKNOWN},
 			orders_{data.orders_repository().all()},
