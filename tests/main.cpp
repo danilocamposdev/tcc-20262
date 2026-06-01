@@ -1,6 +1,6 @@
 #include <fstream>
 #include <filesystem>
-#include "../src/optimizer/allocation_optimizer.h"
+#include "../src/optimization/allocation_optimizer.h"
 #include "./instances/test_instances.h"
 
 
