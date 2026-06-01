@@ -13,7 +13,7 @@ Implementação computacional do modelo de otimização desenvolvido no Trabalho
  
 ## Sobre o projeto
  
-O modelo resolve o problema de sequenciamento da produção de peças de borracha da Barbosa Minerals, respeitando:
+O modelo resolve o problema de alocação da produção de peças de borracha da Barbosa Minerals, respeitando:
  
 - Disponibilidade limitada de matrizes metálicas (recurso gargalo)
 - Capacidade diária de operadores
