@@ -163,7 +163,7 @@ class AllocationOptimizer {
 					<< " | Weight: " << order.weight() << "\n";
 			}
 
-			out << "\n  OPTIMAL SCHEDULE:\n\n";
+			out << "\n  OPTIMAL ALLOCATION:\n\n";
 			out << "    Z* (Minimized Total Penalty) = "
 				<< response_.objective_value()<< "\n";
 
