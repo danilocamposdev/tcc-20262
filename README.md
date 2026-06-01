@@ -51,7 +51,7 @@ tcc-20262/
 │   │   └── mold_repository.h           # Repositório de matrizes
 │   │   
 │   └── optimizer/
-│       └── schedule_optimizer.h        # Modelo matemático e solver
+│       └── allocation_optimizer.h        # Modelo matemático e solver
 │
 └── tests/
     ├── main.cpp                        # Runner de testes
