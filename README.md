@@ -36,7 +36,7 @@ O modelo resolve o problema de alocação da produção de peças de borracha da
 O projeto foi desenvolvido em **C++ com Programação Orientada a Objetos** e com arquitetura em camadas (model, repository, optimizer) visando um código organizado e encapsulado, preparado para uma possível futura incorporação em um software desktop com interface gráfica em **Qt**.
  
 ```
-tcc-20262/
+tcc-2026/
 ├── src/
 │   ├── main.cpp                        # Runner principal
 │   │   
