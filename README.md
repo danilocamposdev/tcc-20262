@@ -1,4 +1,4 @@
-# TCC — Otimização de Alocação de Produção
+# TCC — Otimização de Alocação da Produção em uma Linha de Peças de Borracha no Setor de Mineração
 
 ![C++](https://img.shields.io/badge/c++-%2300599C.svg?style=for-the-badge&logo=c%2B%2B&logoColor=white)
 ![CMake](https://img.shields.io/badge/CMake-%23008FBA.svg?style=for-the-badge&logo=cmake&logoColor=white)
@@ -6,7 +6,7 @@
 
 ### Barbosa Minerals | UFMG - Engenharia de Produção 2026
  
-Implementação computacional do modelo de otimização desenvolvido no Trabalho de Conclusão de Curso **"Otimização da Alocação de Pedidos de Peças de Borracha no Setor de Mineração"**.
+Implementação computacional do modelo de otimização desenvolvido no Trabalho de Conclusão de Curso **"Otimização de Alocação da Produção em uma Linha de Peças de Borracha no Setor de Mineração"**.
  
 
 ---
@@ -51,7 +51,7 @@ tcc-2026/
 │   │   
 │   └── optimization/
 │       ├── allocation_optimizer.h      # Modelo matemático e solver
-│       └── problem_data.h              # Armazenar dados do problema (parâmetros)
+│       └── problem_data.h              # Armazena os dados do problema (parâmetros)
 │
 └── tests/
     ├── main.cpp                        # Runner de testes
@@ -71,7 +71,7 @@ Os resultados das instâncias de teste já executadas estão disponíveis em:
  
 ---
  
-## Como compilar e executar
+## Como compilar e executar (se necessário)
  
 **Pré-requisitos:** CMake 3.24+, compilador C++20 (GCC 11+ ou Clang 13+).
 
