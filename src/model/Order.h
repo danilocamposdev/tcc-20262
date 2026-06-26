@@ -1,6 +1,7 @@
 #pragma once
 #include "Date.h"
 #include <optional>
+#include <string>
 
 class Order {
 	private:
@@ -23,4 +24,9 @@ class Order {
 		int client_id() const { return client_id_; }
 		int quantity() const { return quantity_; }
 		int priority() const { return priority_; }
+		std::string priority_label() const {
+			if (priority_ <= 1)   return "Baixa";
+			if (priority_ <= 2)   return "Regular";
+			return "Alta";
+		}
 };
