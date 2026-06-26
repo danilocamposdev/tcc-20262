@@ -24,9 +24,12 @@ class Order {
 		int client_id() const { return client_id_; }
 		int quantity() const { return quantity_; }
 		int priority() const { return priority_; }
-		std::string priority_label() const {
-			if (priority_ <= 1)   return "Baixa";
-			if (priority_ <= 2)   return "Regular";
-			return "Alta";
+		std::string priorityLabel() const {
+			std::string label;
+			if (priority_ <= 1)        label = "Baixa";
+			else if (priority_ <= 2)   label = "Regular";
+			else                       label = "Alta";
+
+			return std::to_string(priority_) + " - " + label;
 		}
 };
