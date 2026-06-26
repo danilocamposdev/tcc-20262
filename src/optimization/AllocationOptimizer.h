@@ -113,8 +113,8 @@ class AllocationOptimizer {
 		AllocationOptimizer(const ProblemData& data)
 			: data_{data},
 			result_status_{operations_research::sat::CpSolverStatus::UNKNOWN},
-			orders_{data.orders_repository().all()},
-			molds_{data.molds_repository().all()},
+			orders_{data.order_repository().all()},
+			molds_{data.mold_repository().all()},
 			T_{data.horizon() + 1},
 			start_date_{data.start_date()},
 			daily_capacity_{data.daily_capacity()} {}
