@@ -1,23 +1,23 @@
 #pragma once
-#include "Mold.h"
 #include "Date.h"
 
 class Order {
-private:
-    int id_;
-    Date delivery_date_;
-    const Mold* mold_;
-    bool is_firm_;
-    int weight_;
+	private:
+		int id_;
+		Date delivery_date_;
+		int mold_id_;
+		int client_id_;
+		int quantity_;
+		int priority_;
+	public:
+		Order(int id, Date delivery_date, int mold_id, int client_id, int quantity, int priority)
+			: id_{id}, delivery_date_{delivery_date}, mold_id_{mold_id},
+			client_id_{client_id}, quantity_{quantity}, priority_{priority} {}
 
-public:
-    Order(int id, Date delivery_date, const Mold* mold, bool is_firm, int weight)
-        : id_{id}, delivery_date_{delivery_date}, mold_{mold},
-          is_firm_{is_firm}, weight_{weight} {}
-
-    int id() const { return id_; }
-    Date delivery_date() const { return delivery_date_; }
-    const Mold* mold() const { return mold_; }
-    bool is_firm() const { return is_firm_; }
-    int weight() const { return weight_; }
+		int id() const { return id_; }
+		Date delivery_date() const { return delivery_date_; }
+		int mold_id() const { return mold_id_; }
+		int client_id() const { return client_id_; }
+		int quantity() const { return quantity_; }
+		int priority() const { return priority_; }
 };
