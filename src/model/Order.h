@@ -1,7 +1,7 @@
 #pragma once
 #include "Date.h"
 #include <optional>
-#include <string>
+#include "Priority.h"
 
 class Order {
 	private:
@@ -10,9 +10,9 @@ class Order {
 		int mold_id_;
 		int client_id_;
 		int quantity_;
-		int priority_;
+		Priority priority_;
 	public:
-		Order(Date delivery_date, int mold_id, int client_id, int quantity, int priority)
+		Order(Date delivery_date, int mold_id, int client_id, int quantity, Priority priority)
 			: delivery_date_{delivery_date}, mold_id_{mold_id},
 			client_id_{client_id}, quantity_{quantity}, priority_{priority} {}
 
@@ -23,13 +23,5 @@ class Order {
 		int mold_id() const { return mold_id_; }
 		int client_id() const { return client_id_; }
 		int quantity() const { return quantity_; }
-		int priority() const { return priority_; }
-		std::string priorityLabel() const {
-			std::string label;
-			if (priority_ <= 1)        label = "Baixa";
-			else if (priority_ <= 2)   label = "Regular";
-			else                       label = "Alta";
-
-			return std::to_string(priority_) + " - " + label;
-		}
+		Priority priority() const { return priority_; }
 };
