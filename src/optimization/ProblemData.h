@@ -8,14 +8,23 @@ class ProblemData {
 		Date start_date_;
 		int horizon_;
 		int daily_capacity_;
-		IMoldRepository &mold_repository_;
-		IOrderRepository &order_repository_;
+		std::unique_ptr<IMoldRepository> mold_repository_;
+		std::unique_ptr<IOrderRepository> order_repository_;
 
 	public:
-		ProblemData(IMoldRepository &mold_repository, IOrderRepository &order_repository ,Date start_date, int horizon, int daily_capacity): 
-			mold_repository_{mold_repository}, order_repository_{order_repository}, start_date_{start_date}, horizon_{horizon}, daily_capacity_{daily_capacity} {}
+		ProblemData(
+				std::unique_ptr<IMoldRepository> mold_repository,
+				std::unique_ptr<IOrderRepository> order_repository,
+				Date start_date,
+				int horizon,
+				int daily_capacity)
+			: mold_repository_{std::move(mold_repository)},
+			order_repository_{std::move(order_repository)},
+			start_date_{start_date},
+			horizon_{horizon},
+			daily_capacity_{daily_capacity} {}
 
-		
+
 
 		Date start_date() const { return start_date_; }
 
@@ -23,12 +32,12 @@ class ProblemData {
 
 		int daily_capacity() const {return daily_capacity_;}
 
-		IMoldRepository& molds_repository() { return mold_repository_; }
+		IMoldRepository& mold_repository() { return *mold_repository_; }
 
-		const IMoldRepository& molds_repository() const { return mold_repository_; }
+		const IMoldRepository& mold_repository() const { return *mold_repository_; }
 
-		IOrderRepository& orders_repository() { return order_repository_; }
+		IOrderRepository& order_repository() { return *order_repository_; }
 
-		const IOrderRepository& orders_repository() const { return order_repository_; }
+		const IOrderRepository& order_repository() const { return *order_repository_; }
 
 };
