@@ -4,40 +4,26 @@
 #include "../model/Date.h"
 
 class ProblemData {
-	private:
-		Date start_date_;
-		int horizon_;
-		int daily_capacity_;
-		std::unique_ptr<IMoldRepository> mold_repository_;
-		std::unique_ptr<IOrderRepository> order_repository_;
+private:
+    Date start_date_;
+    int horizon_;
+    int daily_capacity_;
+    IMoldRepository *mold_repository_;
+    IOrderRepository *order_repository_;
 
-	public:
-		ProblemData(
-				std::unique_ptr<IMoldRepository> mold_repository,
-				std::unique_ptr<IOrderRepository> order_repository,
-				Date start_date,
-				int horizon,
-				int daily_capacity)
-			: mold_repository_{std::move(mold_repository)},
-			order_repository_{std::move(order_repository)},
-			start_date_{start_date},
-			horizon_{horizon},
-			daily_capacity_{daily_capacity} {}
+public:
+    ProblemData(
+        IMoldRepository *mold_repository,
+        IOrderRepository *order_repository,
+        Date start_date,
+        int horizon,
+        int daily_capacity);
 
-
-
-		Date start_date() const { return start_date_; }
-
-		int horizon() const {return horizon_;}
-
-		int daily_capacity() const {return daily_capacity_;}
-
-		IMoldRepository& mold_repository() { return *mold_repository_; }
-
-		const IMoldRepository& mold_repository() const { return *mold_repository_; }
-
-		IOrderRepository& order_repository() { return *order_repository_; }
-
-		const IOrderRepository& order_repository() const { return *order_repository_; }
-
+    Date start_date() const;
+    int horizon() const;
+    int daily_capacity() const;
+    IMoldRepository& mold_repository();
+    const IMoldRepository& mold_repository() const;
+    IOrderRepository& order_repository();
+    const IOrderRepository& order_repository() const;
 };

@@ -37,13 +37,13 @@ CPMAddPackage(
 	"BUILD_TESTING OFF"
 )
 
-add_library(${PROJECT_NAME}
-	INTERFACE
+add_library(${PROJECT_NAME} STATIC
+	src/optimization/ProblemData.cpp
 )
 
-target_include_directories(${PROJECT_NAME} INTERFACE src)
+target_include_directories(${PROJECT_NAME} PUBLIC src)
 
-target_link_libraries(${PROJECT_NAME} INTERFACE ortools::ortools)
+target_link_libraries(${PROJECT_NAME} PUBLIC ortools::ortools)
 
 #add_executable(${PROJECT_NAME}_tests
 #	tests/main.cpp
