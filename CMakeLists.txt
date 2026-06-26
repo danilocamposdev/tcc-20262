@@ -39,6 +39,7 @@ CPMAddPackage(
 
 add_library(${PROJECT_NAME} STATIC
 	src/optimization/ProblemData.cpp
+	src/optimization/AllocationOptimizer.cpp
 )
 
 target_include_directories(${PROJECT_NAME} PUBLIC src)
