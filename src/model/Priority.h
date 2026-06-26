@@ -9,7 +9,7 @@ public:
 
     int index()             const { return index_; }  // salvo no banco
     int value()             const { return value_; }  // usado na otimização
-    std::string toString()  const { return title_; }  // usado na UI
+    std::string to_string()  const { return title_; }  // usado na UI
 
     bool operator==(const Priority& other) const { return index_ == other.index_; }
 
