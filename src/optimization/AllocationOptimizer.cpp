@@ -92,14 +92,22 @@ void AllocationOptimizer::build_objective_function() {
 	using operations_research::sat::LinearExpr;
 
 	const int artificial_day_penalty = 1000;
+	const int earliness_weight = 1;
+    const int delay_weight = (T_ * (int)jobs_.size()) + 1;
 
 	LinearExpr sum_py_j_k;
 	for (const Job& job : jobs_) {
 		for (int k = 1; k <= (T_ - job.deadline); ++k) {
 			int penalty = k * job.priority;
 			if (job.deadline + k == T_)
-				penalty += artificial_day_penalty;
+				penalty += artificial_day_penalty * delay_weight;
 			sum_py_j_k += LinearExpr::Term(y_[job.id][k], penalty);
+		}
+	}
+
+	for (const Job& job : jobs_) {
+		for (int t = 1; t <= T_; ++t) {
+			sum_py_j_k += LinearExpr::Term(x_[job.id][t], t * earliness_weight);
 		}
 	}
 	cp_model_.Minimize(sum_py_j_k);
