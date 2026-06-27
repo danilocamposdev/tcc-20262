@@ -8,6 +8,14 @@
 #include "../model/Order.h"
 #include "../model/Mold.h"
 
+struct Job {
+	int id;
+	int order_id;
+	int mold_id;
+	int deadline;
+	int priority;
+};
+
 class AllocationOptimizer {
 	private:
 		const ProblemData& data_;
@@ -19,10 +27,12 @@ class AllocationOptimizer {
 		std::map<int, std::map<int, operations_research::sat::BoolVar>> y_;
 		const std::vector<Order> orders_;
 		const std::vector<Mold>  molds_;
+		std::vector<Job> jobs_;
 		const int T_;
 		const Date start_date_;
 		const int daily_capacity_;
 
+		void build_jobs();
 		void build_variables();
 		void build_constraints();
 		void build_objective_function();
