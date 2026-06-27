@@ -7,6 +7,8 @@
 #include "ProblemData.h"
 #include "../model/Order.h"
 #include "../model/Mold.h"
+#include "../repository/IOptimizationConfigRepository.h"
+#include "../repository/IProductionAllocationRepository.h"
 
 struct Job {
 	int id;
@@ -41,4 +43,8 @@ class AllocationOptimizer {
 		AllocationOptimizer(const ProblemData& data);
 		bool solve();
 		void print_results(std::ostream& out = std::cout);
+		void save_results(IOptimizationConfigRepository& config_repo,
+				IProductionAllocationRepository& allocation_repo
+				);
+
 };

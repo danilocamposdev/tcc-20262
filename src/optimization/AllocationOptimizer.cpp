@@ -197,3 +197,30 @@ void AllocationOptimizer::print_results(std::ostream& out) {
 
 	out << "\n" << separator << "\n";
 }
+
+void AllocationOptimizer::save_results(
+    IOptimizationConfigRepository& config_repo,
+    IProductionAllocationRepository& allocation_repo)
+{
+    // limpa resultados anteriores
+    config_repo.clear();
+    allocation_repo.clear();
+
+    // salva a config atual e pega o id
+    OptimizationConfig config{start_date_, T_ - 1, daily_capacity_};
+    config = config_repo.save(config);
+
+    // salva cada alocação
+    for (int t = 1; t <= T_; ++t) {
+        std::map<int, int> units_per_order;
+        for (const Job& job : jobs_)
+            if (operations_research::sat::SolutionBooleanValue(response_, x_[job.id][t]))
+                units_per_order[job.order_id]++;
+
+        Date date = start_date_.sum_days(t - 1);
+        for (const auto& [order_id, units] : units_per_order) {
+            ProductionAllocation allocation{config.id().value(), order_id, date, units};
+            allocation_repo.save(allocation);
+        }
+    }
+}
