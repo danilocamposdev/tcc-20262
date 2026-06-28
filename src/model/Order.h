@@ -27,4 +27,11 @@ class Order {
 		int quantity() const { return quantity_; }
 		Priority priority() const { return priority_; }
 		int produced_quantity() const { return produced_quantity_; }
+
+		void setDeliveryDate(Date date) {delivery_date_ = date;}
+		void setMoldId(int id) {mold_id_ = id;}
+		void setClientId(int id) {client_id_ = id;}
+		void setQuantity(int quantity) {quantity_ = quantity;}
+		void setProducedQuantity(int p_quantity) {produced_quantity_ = p_quantity;}
+
 };
