@@ -32,5 +32,6 @@ class Order {
 		void setClientId(int id) {client_id_ = id;}
 		void setQuantity(int quantity) {quantity_ = quantity;}
 		void setProducedQuantity(int p_quantity) {produced_quantity_ = p_quantity;}
+		void setPriority(int priority) {priority_ = priority;}
 
 };
